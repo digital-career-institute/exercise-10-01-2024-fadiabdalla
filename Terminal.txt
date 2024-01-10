@@ -1,0 +1,28 @@
+mysql> CREATE DATABASE studentdb;
+Query OK, 1 row affected (0,00 sec)
+
+mysql> use studentdb;
+Database changed
+mysql> CREATE TABLE tblstudent (studentId INTEGER AUTO_INCREMENT PRIMARY KEY,studentName VARCHAR(64), dob DATE,address VARCHAR(64) );
+Query OK, 0 rows affected (0,04 sec)
+
+mysql> INSERT INTO tblstudents (studentName,dob,address) VALUES ("Fadi",'1993-01-01',"niedersachsendamm 54 28201 bremen"), ("sandy",'1992-06-09', "zaidal homs syria"), ("joe", "1990-01-19",'schleusen strasse 152 26676 barssel');
+ERROR 1146 (42S02): Table 'studentdb.tblstudents' doesn't exist
+mysql> INSERT INTO tblstudent (studentName,dob,address) VALUES ("Fadi",'1993-01-01',"niedersachsendamm 54 28201 bremen"), ("sandy",'1992-06-09', "zaidal homs syria"), ("joe", "1990-01-19",'schleusen strasse 152
+26676 barssel');
+Query OK, 3 rows affected (0,02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELEXT * FROM tblstudent;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELEXT * FROM tblstudent' at line 1
+mysql> SELECT * FROM tblstudent;
++-----------+-------------+------------+-------------------------------------+
+| studentId | studentName | dob        | address                             |
++-----------+-------------+------------+-------------------------------------+
+|         1 | Fadi        | 1993-01-01 | niedersachsendamm 54 28201 bremen   |
+|         2 | sandy       | 1992-06-09 | zaidal homs syria                   |
+|         3 | joe         | 1990-01-19 | schleusen strasse 152 26676 barssel |
++-----------+-------------+------------+-------------------------------------+
+3 rows in set (0,00 sec)
+
+mysql> 
